@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="h1 row">欢迎来到TranslationTool</div>
+  <div class="row">
+    <div class="row">
+      <button class="btn btn-primary pull-right">翻译成中文</button>
+    </div>
+      <form method="get" (ngSubmit)="onsubmit(event)" novalidate>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="translateFrom"></label>
+            <textarea [(ngModel)]="query" rows="3" class="form-control h3" name="translate" id="translateFrom" placeholder="输入文字即可翻译"></textarea>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="result"></label>
+            <textarea id="result" class="form-control" name="result" rows="3" placeholder="翻译结果">{{result}}</textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block">翻译</button>
+      </form>
+  </div>
+</div>
