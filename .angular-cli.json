@@ -19,12 +19,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css", "F:/Users/Mr.Li/translationTool/node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "styles.css", "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
-      "scripts": ["F:/Users/Mr.Li/translationTool/node_modules/jquery/dist/jquery.min.js",
-        "F:/Users/Mr.Li/translationTool/node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "F:/Users/Mr.Li/translationTool/node_modules/md5/md5.js",
-        "F:/Users/Mr.Li/translationTool/node_modules/angular-md5/angular-md5.min.js"
+      "scripts": ["../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/md5/md5.js",
+        "../node_modules/angular-md5/angular-md5.min.js"
         ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -3,7 +3,7 @@ import {Headers, Http, Jsonp} from "@angular/http";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import $ from 'jquery';
 import 'rxjs/Rx';
-import {jsonpCallbackContext} from "@angular/common/http/src/module";
+
 
 declare var require: any;
 @Component({
@@ -14,14 +14,25 @@ declare var require: any;
 export class TranslateComponent implements OnInit {
   query: string;
   result: any;
-  constructor(public http: Jsonp, public httpclient: HttpClient) { }
+  zhORen = 'en';
+  constructor(public http: Jsonp, public httpclient: HttpClient) {
+  }
 
   ngOnInit() {
   }
-  onsubmit(event) {
-    if (document.getElementById('translateFrom').getAttribute('value') === 'q') { this.result = 'error'; }
+
+  onSwitch() {
+    if (!this.zhORen.localeCompare('en')) {
+      this.zhORen = 'zh';
+    } else {
+      this.zhORen = 'en';
+    }
+    this.onsubmit();
+  }
+  onsubmit() {
+    this.query = this.query.replace(/\n/g, ' ');
     const key = 'MXSkjejs2nZ8Tj_WwtjU';
-    const md5 = require('F:/Users/Mr.Li/translationTool/node_modules/md5/md5.js');
+    const md5 = require('A:/Users/Lcoder/Desktop/translationTool/node_modules/md5/md5.js');
     const salt = (new Date).getTime();
     const appid = '20171105000092856';
     const sign = md5(appid + this.query + salt + key);
@@ -37,16 +48,16 @@ export class TranslateComponent implements OnInit {
     };
     const params = new URLSearchParams();
     params.set('callback', 'JSONP_CALLBACK');
-    const last = '?q=' + this.query + '&from=auto&to=zh&appid=20171105000092856&salt='  + salt + '&sign=' + sign;
-    this.http.get('http://api.fanyi.baidu.com/api/trans/vip/translate' + last + '&callback=JSONP_CALLBACK', {params: params})
+    const last = '?q=' + this.query + '&from=auto&to=' + this.zhORen + '&appid=20171105000092856&salt=' + salt + '&sign=' + sign;
+    this.http.get('http://api.fanyi.baidu.com/api/trans/vip/translate' + last + '&callback=JSONP_CALLBACK',
+      {params: params})
       .map(res => res.json()).subscribe(
       (d) => {
         this.result = d['trans_result'][0].dst;
       }
     );
-
-
-    // let res = '';
+  }
+}
     // $.ajax({
     //   url: 'http://api.fanyi.baidu.com/api/trans/vip/translate',
     //   type: 'post',
@@ -61,34 +72,8 @@ export class TranslateComponent implements OnInit {
     //   },
     //   success: function (data) {
     //     console.log(data['trans_result'][0].dst);
-    //     res = data['trans_result'][0].dst;
-    //     handler(data);
     //   }
     // });
-    // function handler(data) {
-    //  res = data;
-    //  console.log(res);
-    //  data.emit();
-    // }
-  }
-
-    // const data = {
-    //       q: encodeURI(this.query),
-    //       appid: appid,
-    //       salt: salt,
-    //       from: 'auto',
-    //       to: 'zh',
-    //       sign: sign
-    //     };
-    // this.httpclient.post('http://api.fanyi.baidu.com/api/trans/vip/translate', data,
-    //   {responseType: 'json'}).subscribe(
-    //   (d) => {
-    //     console.log(d);
-    //   }
-    // );
-
-
-
 
 
     // const header = new Headers({
@@ -113,4 +98,4 @@ export class TranslateComponent implements OnInit {
     //   (data) => {console.log(data['trans_result'][0].dst); }
     // );
   // }
-}
+
