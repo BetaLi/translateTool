@@ -3,13 +3,14 @@ import {Headers, Http, Jsonp} from "@angular/http";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import $ from 'jquery';
 import 'rxjs/Rx';
+import Clipboard from 'clipboard/dist/clipboard.min.js';
 
 
 declare var require: any;
 @Component({
   selector: 'app-translate',
   templateUrl: './translate.component.html',
-  styleUrls: ['./translate.component.css']
+  styleUrls: ['./translate.component.css', '../css/dxy-ui.css']
 })
 export class TranslateComponent implements OnInit {
   query: string;
@@ -29,6 +30,9 @@ export class TranslateComponent implements OnInit {
     }
     this.onsubmit();
   }
+  on_copy() {
+    const copy = new Clipboard('.copy_logo');
+  }
   onsubmit() {
     this.query = this.query.replace(/\n/g, ' ');
     const key = 'MXSkjejs2nZ8Tj_WwtjU';
@@ -37,7 +41,6 @@ export class TranslateComponent implements OnInit {
     const appid = '20171105000092856';
     const sign = md5(appid + this.query + salt + key);
     console.log(sign);
-
     const data = {
       q: encodeURI(this.query),
       appid: appid,
@@ -48,7 +51,8 @@ export class TranslateComponent implements OnInit {
     };
     const params = new URLSearchParams();
     params.set('callback', 'JSONP_CALLBACK');
-    const last = '?q=' + this.query + '&from=auto&to=' + this.zhORen + '&appid=20171105000092856&salt=' + salt + '&sign=' + sign;
+    const last = '?q=' + this.query + '&from=auto&to=' + this.zhORen +
+      '&appid=20171105000092856&salt=' + salt + '&sign=' + sign;
     this.http.get('http://api.fanyi.baidu.com/api/trans/vip/translate' + last + '&callback=JSONP_CALLBACK',
       {params: params})
       .map(res => res.json()).subscribe(

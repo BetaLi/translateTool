@@ -23,6 +23,7 @@
     "@angular/router": "^4.4.6",
     "angular-md5": "^0.1.10",
     "bootstrap": "^3.3.7",
+    "clipboard": "^1.7.1",
     "core-js": "^2.5.1",
     "jquery": "^3.2.1",
     "md5": "^2.2.1",

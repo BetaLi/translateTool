@@ -9,14 +9,17 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="translateFrom"></label>
-            <textarea [(ngModel)]="query" rows="3" class="form-control" name="translate" id="translateFrom" placeholder="输入文字即可翻译">
+            <textarea [(ngModel)]="query" rows="5" class="form-control" name="translate" id="translateFrom" placeholder="输入文字即可翻译">
             </textarea>
           </div>
         </div>
         <div class="col-md-6">
             <label for="result"></label>
-            <textarea id="result" class="form-control" name="result" rows="3" placeholder="翻译结果">{{result}}</textarea>
+            <textarea id="result" class="form-control" name="result" rows="5" placeholder="翻译结果">{{result}}</textarea>
+            <div class="copy_img"><div class="copy_logo" data-clipboard-target="#result" data-toggle="tooltip" title="点击复制" (click)="on_copy()"></div></div>
         </div>
         <button type="submit" class="btn btn-block btn-primary" style="margin-top: 10px;">翻译</button>
       </form>
 </div>
+
+

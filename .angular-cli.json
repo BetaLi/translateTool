@@ -24,7 +24,8 @@
       "scripts": ["../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/md5/md5.js",
-        "../node_modules/angular-md5/angular-md5.min.js"
+        "../node_modules/angular-md5/angular-md5.min.js",
+        "../node_modules/clipboard/dist/clipboard.min.js"
         ],
       "environmentSource": "environments/environment.ts",
       "environments": {

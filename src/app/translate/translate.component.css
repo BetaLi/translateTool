@@ -1,0 +1,22 @@
+.copy_img{
+  position: relative;
+  left:90%;
+  bottom: 35px;
+}
+.copy_img .copy_logo{
+  width:35px;
+  height:27px;
+  background-image: url("../img/icons_80cc695.png");
+  background-repeat: no-repeat;
+  background-position:  0 -43px;
+}
+.copy_img .copy_logo:hover{
+  width:35px;
+  height:27px;
+  background-image: url("../img/icons_80cc695.png");
+  background-repeat: no-repeat;
+  background-position:  -52px -43px;
+  cursor: pointer;
+}
+
+
