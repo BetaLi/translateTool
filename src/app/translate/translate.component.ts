@@ -17,6 +17,8 @@ export class TranslateComponent implements OnInit {
   query = '';
   result: any;
   zhORen = 'en';
+  history = [];
+  like = [];
 
   key = 'MXSkjejs2nZ8Tj_WwtjU';
   salt = (new Date).getTime();
@@ -37,6 +39,16 @@ export class TranslateComponent implements OnInit {
   }
   on_copy() {
     const copy = new Clipboard('.copy_logo');
+    return copy;
+  }
+  on_like() {
+    const fav = [];
+    fav.unshift(this.query + ':' + this.result);
+    for (let i = 0; i < fav.length; i++) {
+      if (this.like.indexOf(fav[i]) < 0) {
+        this.like.unshift(fav[i]);
+      }
+    }
   }
   on_change() {
       if (this.query !== '') {
@@ -45,7 +57,7 @@ export class TranslateComponent implements OnInit {
       }
   }
   onsubmit() {
-    this.query = this.query.replace(/\n/g, ' ');
+    this.query = this.query.replace(/\n/g, '');
     const sign = md5(this.appid + this.query + this.salt + this.key);
     console.log(sign);
     const last = '?q=' + this.query + '&from=auto&to=' + this.zhORen +
@@ -58,6 +70,9 @@ export class TranslateComponent implements OnInit {
       (err) => { console.log(err); },
       () => { console.log('Jsonp excute has done'); }
     );
+    if ((this.query + ':' + this.result) !== this.history[0] && this.result) {
+      this.history.unshift(this.query + ':' + this.result);
+    }
   }
 }
     // $.ajax({

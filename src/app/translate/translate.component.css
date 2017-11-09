@@ -1,6 +1,13 @@
+a {
+   cursor: pointer;
+}
+a:hover {
+  cursor: pointer;
+}
+
 .copy_img{
   position: relative;
-  left:90%;
+  left:85%;
   bottom: 35px;
 }
 .copy_img .copy_logo{
@@ -8,14 +15,29 @@
   height:27px;
   background-image: url("../img/icons_80cc695.png");
   background-repeat: no-repeat;
-  background-position:  0 -43px;
+  background-position:  -72px -128px;
 }
 .copy_img .copy_logo:hover{
   width:35px;
   height:27px;
   background-image: url("../img/icons_80cc695.png");
   background-repeat: no-repeat;
-  background-position:  -52px -43px;
+  background-position:  -124px -128px;
+  cursor: pointer;
+}
+.copy_img .fav_logo{
+  width:35px;
+  height:27px;
+  background-image: url("../img/icons_80cc695.png");
+  background-repeat: no-repeat;
+  background-position:  -72px -168px;
+}
+.copy_img .fav_logo:hover{
+  width:35px;
+  height:27px;
+  background-image: url("../img/icons_80cc695.png");
+  background-repeat: no-repeat;
+  background-position:  -122px -168px;
   cursor: pointer;
 }
 

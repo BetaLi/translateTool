@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row h2">欢迎来到TranslationTool</div>
+
   <div class="row">
     <div class="col-md-12">
     <button class="btn pull-right"  (click)="onSwitch()">切换目标语言</button>
     </div>
   </div>
+
       <form method="get" (ngSubmit)="onsubmit()" novalidate>
         <div class="col-md-6">
           <div class="form-group">
@@ -16,10 +18,29 @@
         <div class="col-md-6">
             <label for="result"></label>
             <textarea id="result" class="form-control" name="result" rows="5" placeholder="翻译结果">{{result}}</textarea>
-            <div class="copy_img"><div class="copy_logo" data-clipboard-target="#result" data-toggle="tooltip" title="点击复制" (click)="on_copy()"></div></div>
+            <div class="copy_img">
+              <div class="fav_logo pull-left" data-toggle="tooltip" title="点击收藏" (click)="on_like()"></div>
+              <div class="copy_logo pull-left" data-clipboard-target="#result" data-toggle="tooltip" title="点击复制" (click)="on_copy()"></div>
+            </div>
         </div>
         <button type="submit" class="btn btn-block btn-primary" style="margin-top: 10px;">翻译</button>
       </form>
+
+  <div class="row" style="margin-top: 25px;">
+    <div class="col-md-6">
+      <div class="dxy-font-info">查询记录：</div>
+      <div class="bg-info" style="background: #f6f6f6; width: 100%; height: 200px; overflow: auto">
+        <div *ngFor="let his of history">{{his}}</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="dxy-font-info">收藏：</div>
+      <div class="bg-info" style="position: relative; background: #f6f6f6; width: 100%; height: 200px; overflow: auto">
+        <div *ngFor="let lik of like">{{lik}}</div>
+        <div style="position: absolute; bottom: 10px; right: 10px;"><a class="label-danger" (click)="on_clear()">清空收藏夹</a></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
