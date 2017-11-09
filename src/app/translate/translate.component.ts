@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Headers, Http, Jsonp} from "@angular/http";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Jsonp} from "@angular/http";
+import {HttpClient} from "@angular/common/http";
 import $ from 'jquery';
 import 'rxjs/Rx';
 import Clipboard from 'clipboard/dist/clipboard.min.js';
+import md5 from 'md5/md5';
 
 
 declare var require: any;
@@ -13,9 +14,13 @@ declare var require: any;
   styleUrls: ['./translate.component.css', '../css/dxy-ui.css']
 })
 export class TranslateComponent implements OnInit {
-  query: string;
+  query = '';
   result: any;
   zhORen = 'en';
+
+  key = 'MXSkjejs2nZ8Tj_WwtjU';
+  salt = (new Date).getTime();
+  appid = '20171105000092856';
   constructor(public http: Jsonp, public httpclient: HttpClient) {
   }
 
@@ -33,32 +38,25 @@ export class TranslateComponent implements OnInit {
   on_copy() {
     const copy = new Clipboard('.copy_logo');
   }
+  on_change() {
+      if (this.query !== '') {
+        console.log('keyup listener!');
+        this.onsubmit();
+      }
+  }
   onsubmit() {
     this.query = this.query.replace(/\n/g, ' ');
-    const key = 'MXSkjejs2nZ8Tj_WwtjU';
-    const md5 = require('A:/Users/Lcoder/Desktop/translationTool/node_modules/md5/md5.js');
-    const salt = (new Date).getTime();
-    const appid = '20171105000092856';
-    const sign = md5(appid + this.query + salt + key);
+    const sign = md5(this.appid + this.query + this.salt + this.key);
     console.log(sign);
-    const data = {
-      q: encodeURI(this.query),
-      appid: appid,
-      salt: salt,
-      from: 'auto',
-      to: 'zh',
-      sign: sign
-    };
-    const params = new URLSearchParams();
-    params.set('callback', 'JSONP_CALLBACK');
     const last = '?q=' + this.query + '&from=auto&to=' + this.zhORen +
-      '&appid=20171105000092856&salt=' + salt + '&sign=' + sign;
-    this.http.get('http://api.fanyi.baidu.com/api/trans/vip/translate' + last + '&callback=JSONP_CALLBACK',
-      {params: params})
+      '&appid=20171105000092856&salt=' + this.salt + '&sign=' + sign;
+    this.http.get('http://api.fanyi.baidu.com/api/trans/vip/translate' + last + '&callback=JSONP_CALLBACK')
       .map(res => res.json()).subscribe(
       (d) => {
         this.result = d['trans_result'][0].dst;
-      }
+      },
+      (err) => { console.log(err); },
+      () => { console.log('Jsonp excute has done'); }
     );
   }
 }
