@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-6">
             <label for="result"></label>
-            <textarea id="result" class="form-control" name="result" rows="5" placeholder="翻译结果">{{result}}</textarea>
+            <textarea id="result" class="form-control" name="result" rows="5" placeholder="翻译结果">{{result_dst}}</textarea>
             <div class="copy_img">
               <div class="fav_logo pull-left" data-toggle="tooltip" title="点击收藏" (click)="on_like()"></div>
               <div class="copy_logo pull-left" data-clipboard-target="#result" data-toggle="tooltip" title="点击复制" (click)="on_copy()"></div>
@@ -29,8 +29,9 @@
   <div class="row" style="margin-top: 25px;">
     <div class="col-md-6">
       <div class="dxy-font-info">查询记录：</div>
-      <div class="bg-info" style="background: #f6f6f6; width: 100%; height: 200px; overflow: auto">
+      <div class="bg-info" style="position: relative; background: #f6f6f6; width: 100%; height: 200px; overflow: auto">
         <div *ngFor="let his of history">{{his}}</div>
+        <div style="position: absolute; bottom: 10px; right: 10px;"><a class="label-danger" (click)="on_clear_his()">清空记录</a></div>
       </div>
     </div>
     <div class="col-md-6">
@@ -41,6 +42,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 
