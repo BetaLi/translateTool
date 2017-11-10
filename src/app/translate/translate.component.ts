@@ -37,10 +37,12 @@ export class TranslateComponent implements OnInit {
     }
     this.onsubmit();
   }
+
   on_copy() {
     const copy = new Clipboard('.copy_logo');
     return copy;
   }
+
   on_like() {
     const fav = [];
     fav.unshift(this.query + ':' + this.result_dst);
@@ -50,12 +52,15 @@ export class TranslateComponent implements OnInit {
       }
     }
   }
+
   on_clear() {
     this.like = [];
   }
+
   on_clear_his() {
     this.history = [];
   }
+
   on_change() {
     if (this.query !== '') {
       console.log('keyup listener!');
@@ -77,6 +82,8 @@ export class TranslateComponent implements OnInit {
       (err) => { console.log(err); },
       () => { console.log('Jsonp excute has done'); }
     );
+
+    // 将数据保存到历史纪录中，去掉重复的数据
     if (this.result_dst) {
       const last_data = [];
       last_data.unshift(this.result_src + ':' + this.result_dst);

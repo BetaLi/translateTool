@@ -31,14 +31,16 @@
       <div class="dxy-font-info">查询记录：</div>
       <div class="bg-info" style="position: relative; background: #f6f6f6; width: 100%; height: 200px; overflow: auto">
         <div *ngFor="let his of history">{{his}}</div>
-        <div style="position: absolute; bottom: 10px; right: 10px;"><a class="label-danger" (click)="on_clear_his()">清空记录</a></div>
+        <div class="clearfix"></div>
+        <div class="pull-right"><a class="label-danger" (click)="on_clear_his()">清空记录</a></div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="dxy-font-info">收藏：</div>
       <div class="bg-info" style="position: relative; background: #f6f6f6; width: 100%; height: 200px; overflow: auto">
         <div *ngFor="let lik of like">{{lik}}</div>
-        <div style="position: absolute; bottom: 10px; right: 10px;"><a class="label-danger" (click)="on_clear()">清空收藏夹</a></div>
+        <div class="clearfix"></div>
+        <div class="pull-right"><a class="label-danger" (click)="on_clear()">清空收藏夹</a></div>
       </div>
     </div>
   </div>
