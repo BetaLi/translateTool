@@ -5,8 +5,10 @@ import 'rxjs/Rx';
 import Clipboard from 'clipboard/dist/clipboard.min.js';
 import md5 from 'md5/md5';
 
-
+//声明require
 declare var require: any;
+
+
 @Component({
   selector: 'app-translate',
   templateUrl: './translate.component.html',

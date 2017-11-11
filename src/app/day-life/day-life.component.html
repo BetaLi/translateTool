@@ -1,0 +1,54 @@
+<!--<mat-card class="example-card">-->
+  <!--<mat-card-header>-->
+    <!--<div mat-card-avatar class="example-header-image"></div>-->
+    <!--<mat-card-title>Shiba Inu</mat-card-title>-->
+    <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+  <!--</mat-card-header>-->
+  <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+  <!--<mat-card-content>-->
+    <!--<p>-->
+      <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+      <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+      <!--bred for hunting.-->
+    <!--</p>-->
+  <!--</mat-card-content>-->
+  <!--<mat-card-actions>-->
+    <!--<button mat-button>LIKE</button>-->
+    <!--<button mat-button>SHARE</button>-->
+  <!--</mat-card-actions>-->
+<!--</mat-card>-->
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="{{picUrl[random-1]}}" alt="111">
+      <div class="caption">
+        <h3>One sentence a day</h3>
+        <p>{{dailySentence[random-1].en}}</p>
+        <p>{{dailySentence[random-1].zh}}</p>
+        <p><a href="#" class="btn btn-default" role="button">LIKE</a> <a href="#" class="btn btn-default" role="button">SHARE</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="{{picUrl[random]}}" alt="222">
+      <div class="caption">
+        <h3>One sentence a day</h3>
+        <p>{{dailySentence[random].en}}</p>
+        <p>{{dailySentence[random].zh}}</p>
+        <p><a href="#" class="btn btn-default" role="button">LIKE</a> <a href="#" class="btn btn-default" role="button">SHARE</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="{{picUrl[random+1]}}" alt="333">
+      <div class="caption">
+        <h3>One sentence a day</h3>
+        <p>{{dailySentence[random+1].en}}</p>
+        <p>{{dailySentence[random+1].zh}}</p>
+        <p><a href="#" class="btn btn-default" role="button">LIKE</a> <a href="#" class="btn btn-default" role="button">SHARE</a></p>
+      </div>
+    </div>
+  </div>
+</div>

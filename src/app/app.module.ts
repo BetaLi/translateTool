@@ -6,11 +6,14 @@ import { TranslateComponent } from './translate/translate.component';
 import {FormsModule} from "@angular/forms";
 import {HttpModule, JsonpModule} from "@angular/http";
 import {HttpClientModule} from "@angular/common/http";
+import { DayLifeComponent } from './day-life/day-life.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TranslateComponent
+    TranslateComponent,
+    DayLifeComponent
   ],
   imports: [
     BrowserModule,
