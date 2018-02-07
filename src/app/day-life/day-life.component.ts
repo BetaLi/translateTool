@@ -9,19 +9,11 @@ import $ from 'jquery';
 })
 export class DayLifeComponent implements OnInit {
   dailySentence = [];
-  picUrl = ['http://s.cn.bing.net/az/hprichbg/rb/LeuchtturmWarnemuende_ZH-CN8673593712_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/MudstoneBadlands_ZH-CN9863836503_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/HeronIslandShark_ZH-CN12565902939_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/PointArenaLH_ZH-CN12332642727_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/CRGFerns_ZH-CN13613783251_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/BudaCastle_ZH-CN8740088800_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/FoucaultPendulum_ZH-CN9807228543_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/PrusikPeak_ZH-CN10980657640_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/Cotoneaster_ZH-CN13904488642_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/KyrgyzstanCat_ZH-CN10422392512_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/InspirationPoint_ZH-CN7836594587_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/HauntedGallery_ZH-CN7884856477_1366x768.jpg',
-  'http://s.cn.bing.net/az/hprichbg/rb/Uummannaq_ZH-CN11265049839_1366x768.jpg'];
+  picUrl = ['././img/2_1513607656105.jpg',
+  '././img/3_1513609366023.jpg',
+  '././img/4_1513609366024.jpg',
+  '././img/7_1513607656110.jpg',
+  '././img/7_1513609366024.jpg',];
   random = Math.floor(Math.random() * 12 );
   constructor(public http: HttpClient) {
     this.dailySentence = [new DailySentence('Some birds are not meant to be caged; their feathers are just too bright.', '有些鸟儿是注定不会被关在牢笼里，它们的每一片羽毛都闪耀着光辉。'),
