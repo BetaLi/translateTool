@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import 'rxjs/Rx';
 import Clipboard from 'clipboard/dist/clipboard.min.js';
 import md5 from 'md5/md5';
+import $ from "jquery";
 
 //声明require
 declare var require: any;
@@ -29,7 +30,14 @@ export class TranslateComponent implements OnInit {
   }
 
   ngOnInit() {
+    $.ajax({
+      url:"http://www.translatetool.cn",
+      type:"get",
+      success:()=>{console.log("跨域访问success!")},
+      error:()=>{console.log("跨站访问failed!")}
+    });
   }
+
 
   onSwitch() {
     if (!this.zhORen.localeCompare('en')) {
